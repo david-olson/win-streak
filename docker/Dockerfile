@@ -16,5 +16,6 @@ WORKDIR /var/www/html/app
 COPY app/ .
 
 RUN composer install --no-interaction --prefer-dist
+RUN php artisan config:clear && php artisan route:clear
 
 CMD ["php-fpm"]
