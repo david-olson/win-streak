@@ -15,7 +15,7 @@ WORKDIR /var/www/html/app
 # Copy app (image build is reproducible; compose volume will override for live dev)
 COPY app/ .
 
-RUN composer install --no-interaction --prefer-dist
+RUN composer install --no-interaction
 RUN php artisan config:clear && php artisan route:clear
 
 CMD ["php-fpm"]
